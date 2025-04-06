@@ -1,5 +1,9 @@
 <script>
-  const path = window.location.pathname
-    .replace('/Obsidian-notes/', '/');
-  window.location.replace(`https://blog.cpt-dingus.cc${path}`);
+  const currentUrl = new URL(window.location.href);
+  const currentPath = currentUrl.pathname;
+  const currentHash = currentUrl.hash;
+  const newPath = currentPath.replace('/Obsidian-notes/', '/');
+  const newUrl = `https://blog.cpt-dingus.cc${newPath}${currentHash}`;
+
+  window.location.replace(newUrl);
 </script>
